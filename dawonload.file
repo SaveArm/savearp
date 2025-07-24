@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SaveArm - Download Videos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f4f4f4;
+    }
+    h1 {
+      background: #007bff;
+      color: white;
+      padding: 20px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+      width: 80%;
+      max-width: 400px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>SaveArm</h1>
+  <p>Download videos without watermark</p>
+
+  <input type="text" id="videoURL" placeholder="Paste your video link here" />
+  <br/>
+  <button onclick="downloadVideo()">Download</button>
+
+  <script>
+    function downloadVideo() {
+      const url = document.getElementById('videoURL').value;
+      if (!url) {
+        alert("Please paste a video link first.");
+        return;
+      }
+
+      // Create an invisible link element
+      const a = document.createElement('a');
+      a.href = url;
+      a.setAttribute('download', 'video.mp4'); // Suggests filename
+      a.setAttribute('target', '_blank');
+      
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  </script>
+
+</body>
+</html>
