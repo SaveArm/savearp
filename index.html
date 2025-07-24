@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SaveArm - Video Downloader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background: #1e90ff;
+      color: white;
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+input {
+      padding: 10px;
+      width: 80%;
+      max-width: 500px;
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0d73d3;
+    }
+
+    .icon-bar {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+.icon-container {
+      width: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .icon-container:hover {
+      transform: scale(1.05);
+    }
+
+    .icon-container img {
+      width: 48px;
+      height: 48px;
+    }
+
+    .icon-container span {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .icon-container p {
+      font-size: 13px;
+      color: #555;
+      margin: 5px 0 0;
+    }
+footer {
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #eee;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SaveArm</h1>
+    <p>Download videos without watermark</p>
+  </header>
+
+  <main>
+    <input type="text" id="videoURL" placeholder="Paste your video link here" />
+    <br />
+    <button onclick="downloadVideo()">Download</button>
+  
+
+<p style="margin-top: 15px; font-size: 14px; color: #55703;">
+  📌 Copy the video link from Facebook, TikTok, Instagram, or YouTube — then paste it above and click 
+  <strong>Download</strong> to save your video without watermark.
+</p>
+<!-- 7-Step Policy -->
+<div style="margin-top: 20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; font-size: 14px; color: #444; background-color: #f9f9f9; padding: 15px; border-left: 4px solid #1e90ff; border-radius: 8px;">
+  <strong>📄 How to Use SaveArm:</strong>
+  <ol style="padding-left: 20px; margin-top: 10px;">
+    <li>Click on the video you want to download.</li>
+    <li>Copy the video link using the share option.</li>
+    <li>Paste the copied link into the input box above.</li>
+    <li>Ensure you have accepted the agreement or cookie notice.</li>
+    <li>Select the correct platform for the video.</li>
+    <li>Review filters or options, then click submit.</li>
+    <li>Click the <strong>Download</strong> button to save your video.</li>
+  </ol>
+</div>
+ <div class="icon-bar">
+      <div class="icon-container" onclick="fillURL('facebook')">
+        <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook" />
+        <span>Facebook</span>
+        <p>Download video from Facebook</p>
+      </div>
+
+      <div class="icon-container" onclick="fillURL('tiktok')">
+        <img src="https://img.icons8.com/color/48/tiktok--v1.png" alt="TikTok" />
+        <span>TikTok</span>
+        <p>Download video from TikTok</p>
+      </div>
+
+      <div class="icon-container" onclick="fillURL('youtube')">
+        <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube" />
+        <span>YouTube</span>
+        <p>Download video from YouTube</p>
+      </div>
+<div class="icon-container" onclick="fillURL('instagram')">
+        <img src="https://img.icons8.com/color/48/instagram-new.png" alt="Instagram" />
+        <span>Instagram</span>
+        <p>Download video from Instagram</p>
+      </div>
+
+      <div class="icon-container" onclick="fillURL('chrome')">
+        <img src="https://img.icons8.com/color/48/chrome--v1.png" alt="Chrome" />
+span>Chromes/span> 
+<p>Download video from any website</p> </div> 
+<!-- Website Policv Section --> <div style="margin-top: 4Opx; max-width: 800px; margin-left: auto; margin-right: auto; padding: 20px; background-color: #f9f9f9; color: #333; font-size: 15px; line-height: 1.6; border-left: 5px solid #1e90ff; border-radius: 8px;"> 
+<h3 stvle="color: #1e90ff;">" Video Downloader Website Policy</h3> 
+<p>Welcome to our Video Downloader website. We are committed to providing users with a simple, efficient, and reliable platform to download online video content for personal use. To ensure transparency and responsible usage, we have outlined the following policies governing the use of our service./p>
+<strong>1. Acceptable Use</strong> <p>Our website is intended for personal, non- commercial use only. Users may download videos for offline Viewing, study, or private enjoyment. The content downloaded through our platform must not be used for redistribution, resale, or public display without proper authorization from the copyright owner. </p>
+<strong>2. Copyright and Ownership</strong> <p>We do not own, host, or control any of the video content available through our service. All intellectual property rights belong to the respective content creators, platforms, or copyright holders. Users are solely responsible for ensuring that they have the legal right to download and use the content. Downloading copyrighted materials without permission is strictly prohibited and may violate copyright laws. </p>
+<strong>3. User Responsibility</strong> 
+<p>By using our service, users agree to comply with all applicable laws and regulations It is the user's responsibility to ensure that any downloads are legal in their iurisdiction. Misuse of the site, including attempts to download copyrighted content without authorization, may result in temporary or permanent bans.</p> 
+<strong>4. Limitations of Service</strong> <p>Our platform does not guarantee uninterrupted or error-free operation. We reserve the right to limit or suspend services, update our tools, or remove functionality without prior notice.</p>
+<strong>5. Third-Party Content</strong> <p>We may include links to third-party websites or display content from external sources. We are not responsible for the privacy practices or content of these third parties.</p> 
+<strong>6. Policy Changes</strong> 
+<p>We reserve the right to update this policy at any time. Continued use of the site constitutes acceptance of the current version of our terms.</p> 
+<p><strong>By using our service, you acknowledge and agree to abide by this policy. If you do not agree, please do not use the website.</strong></p> 
+</div> 
+<!-- Comment Form via Formspree -->
+<form action="https://formspree.io/f/your-form-id" method="POST" style="margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto; padding: 20px; background-color: #fff; border: 1px solid #ddd; border-radius: 8px;">
+  <h3 style="color: #1e90ff;">💬 Leave a Comment</h3>
+
+  <input
+    type="text"
+    name="name"
+    placeholder="Your Name"
+    required
+    style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;"
+  />
+
+  <textarea
+    name="comment"
+    placeholder="Your Comment"
+    required
+    rows="4"
+    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"
+  ></textarea>
+
+  <button
+    type="submit"
+    style="margin-top: 10px; padding: 10px 20px; background-color: #1e90ff; color: white; border: none; border-radius: 5px; cursor: pointer;"
+  >
+Submit Comment
+  </button>
+</form>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 SaveArm. All rights reserved.
+  </footer>
+
+  <script>
+    function downloadVideo() {
+      const url = document.getElementById("videoURL").value;
+      alert(Download triggered for: ${url});
+      // Replace this alert with your backend integration
+    }
+function fillURL(platform) {
+      const urlField = document.getElementById("videoURL");
+      switch (platform) {
+        case "facebook":
+          urlField.value = "https://www.facebook.com/video/sample";
+          break;
+        case "tiktok":
+          urlField.value = "https://www.tiktok.com/@user/video/sample";
+          break;
+        case "youtube":
+          urlField.value = "https://www.youtube.com/watch?v=sample";
+          break;
+        case "instagram":
+          urlField.value = "https://www.instagram.com/reel/sample";
+          break;
+        case "chrome":
+          urlField.value = "https://www.example.com";
+          break;
+}
+    }
+  </script>
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 15px 20px;
+  display: none;
+  text-align: center;
+  z-index: 9999;
+">
+  <span>
+    This website uses cookies to ensure you get the best experience.
+  </span>
+This website uses cookies to ensure you get the best experience.
+  </span>
+  <button onclick="acceptCookies()" style="
+    margin-left: 15px;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  ">Accept</button>
+</div>
+
+<script>
+  function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+
+  window.onload = function () {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookie-banner').style.display = 'block';
+    }
+  };
+  <!-- Hidden Download Options -->
+<div id="downloadOptions" style="display: none; margin-top: 15px; padding: 15px; background-color: #f0f0f0; border-radius: 8px; max-width: 400px; margin-left: auto; margin-right: auto;">
+  <p style="margin-bottom: 10px;">Choose your download quality:</p>
+<button style="display: block; margin-bottom: 8px; padding: 8px 12px; border: none; background-color: #007bff; color: white; border-radius: 5px; width: 100%;">
+    🔽 Download in HD
+  </button>
+  <button style="display: block; margin-bottom: 8px; padding: 8px 12px; border: none; background-color: #6c757d; color: white; border-radius: 5px; width: 100%;">
+    🔽 Download in SD
+  </button>
+  <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid #ccc;">
+    <button style="display: block; padding: 10px 12px; border: none; background-color: #ffc107; color: black; border-radius: 5px; width: 100%;">
+      🎥 Download in 4K (Ultra HD)
+    </button>
+  <!-- Replace the 3 buttons with anchor tags like this -->
+<a href="https://yourserver.com/video-hd.mp4" download style="display: block; margin-bottom: 8px; padding: 8px 12px; background-color: #007bff; color: white; border-radius: 5px; text-align: center; text-decoration: none;">
+  🔽 Download in HD
+</a>
+
+style="display: block; margin-bottom: 8px; padding: 8px 12px; background-color: #6c757d; color: white; border-radius: 5px; text-align: center; text-decoration: none;">
+  🔽 Download in SD
+</a>
+
+<div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid #ccc;">
+  <a href="https://yourserver.com/video-4k.mp4" download style="display: block; padding: 10px 12px; background-color: #ffc107; color: black; border-radius: 5px; text-align: center; text-decoration: none;">
+    🎥 Download in 4K (Ultra HD)
+  </a>
+</div>
+  </div>
+</div>
+</script>
+</body>
+</html>
